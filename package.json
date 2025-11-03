@@ -6,9 +6,11 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "build": "npm run build:client",
-    "build:client": "cd ../interview-client && npm install && npm run build",
+    "build:client": "cd ../interview-client && npm ci && npm run build",
     "dev:full": "concurrently \"npm run dev\" \"cd ../interview-client && npm run dev\"",
-    "postinstall": "cd ../interview-client && npm install"
+    "test": "echo \"No tests specified\" && exit 0",
+    "docker:build": "docker build -t interview-app .",
+    "docker:run": "docker run -p 4000:4000 interview-app"
   },
   "dependencies": {
     "@clerk/express": "^1.7.43",
